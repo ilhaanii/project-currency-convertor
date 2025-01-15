@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment</title>
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="falaad.css">
+</head>
+<body>
+    <header>WELCOME TO MY PROJECT LOCAL CURRENT CONVERTER</header>
+
+   
+    <nav>
+        <ul>
+            <li>
+                <a href="chapters.html">Chapters</a>
+                <ul class="dropdown">
+                    <li><a href="chap1.html">Chapter 1</a></li>
+                    <li><a href="chap2.html">Chapter 2</a></li>
+                    <li><a href="ch3.html">Chapter 3</a></li>
+                    <li><a href="ch4.html">Chapter 4</a></li>
+                    <li><a href="cha5.html">Chapter 5</a></li>
+                    <li><a href="ch6.html">Chapter 6</a></li>
+                    <li><a href="ch7.html">Chapter 7</a></li>
+                    <li><a href="ch8.html">Chapter 8</a></li>
+                </ul>
+            </li>
+            <li><a href="assiment.html">Assignments</a></li>
+            <li><a href="lab.html">Lab</a></li>
+            <li><a href="filter and anlyz.html">Filter and Analyze</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <p id="paragraph">This is a simple example to illustrate the DOM tree structure.</p>
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+            </ul>
+        
+            DOM selection example
+            <div id="container">
+                <p id="content">This is a paragraph within the container.</p>
+            </div>
+            <div class="box">
+                <p class="box-content">This is the content of the box.</p>
+            </div>
+            <div class="box">
+                <p class="box-content">Another box with different content.</p>
+            </div>
+            <div><br>
+                <a id="myLink" href="https://www.google.com" target="_blank">Tag Google</a>
+            </div><br>
+            <button id="toggleButton">Toggle Content Visibility</button>
+        </section>
+        <div class="container">
+            <h2>Go to project</h2>
+            <button class="btn btn-primary" onclick="goBack()">Go Back</button>
+        </div>
+        <footer>
+            <p>&copy; 2025 Currency Converter. All Rights Reserved. by Faiza&Sawda</p>
+        </footer>
+    </main>
+    <script>
+        // Selecting element by ID
+        let contentElement = document.getElementById("content");
+        contentElement.style.background = "blue";
+        contentElement.style.color = "white";
+
+        // Selecting elements by class name
+        let boxElements = document.getElementsByClassName("box");
+        for (let box of boxElements) {
+            box.style.border = "3px dashed black";
+        }
+
+        // Selecting elements by tag name
+        let paragraphElements = document.getElementsByTagName("p");
+        for (let paragraph of paragraphElements) {
+            paragraph.style.fontStyle = "italic";
+            paragraph.style.margin = "10px";
+        }
+
+        // Using query selectors
+        let firstParagraph = document.querySelector("p");
+        let firstBox = document.querySelector("div.box");
+        let allParagraphs = document.querySelectorAll("p");
+        let allBoxes = document.querySelectorAll("div.box");
+        
+        //get href attribute value of anchor
+        let element = document.getElementById("myLink");
+        element.href = "https://www.google.com"; 
+        element.target = "_blank";
+
+        // Setting text content using innerText and textContent properties
+        let paragraph = document.getElementById("paragraph");
+        paragraph.innerText = "Setting p tag text using innerText property";
+        paragraph.textContent = "Setting p tag text using textContent property";
+
+        // Creating and appending an element
+        let createdElement = document.createElement("p");
+        createdElement.innerText = "This is a created element";
+        document.body.appendChild(createdElement);
+
+        // Removing an element
+        let ele = document.getElementById("paragraph");
+        if (ele) {
+            ele.remove();
+        }
+
+        // Replacing an element
+        let oldElement = document.getElementById("content");
+        if (oldElement) {
+            let newElement = document.createElement("p");
+            newElement.innerText = "New paragraph element";
+            document.body.replaceChild(newElement, oldElement);
+        }
+
+        // Inserting an element before another
+        let parentElement = document.getElementById("container");
+        if (parentElement) {
+            let newSpan = document.createElement("span");
+            newSpan.innerText = "New span element";
+            parentElement.appendChild(newSpan);
+        }
+
+        // Toggle visibility of content
+        const toggleButton = document.getElementById("toggleButton");
+        toggleButton.addEventListener("click", function() {
+            if (contentElement.style.display === "none") {
+                contentElement.style.display = "block";
+            } else {
+                contentElement.style.display = "none";
+            }
+        });
+    </script>
+    
+</body>
+</html>
